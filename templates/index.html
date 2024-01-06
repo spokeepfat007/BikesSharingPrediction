@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Forecast a bikes sharing {% endblock %}</h1>
+
+<form action="{{ url_for('predict')}}"method="post">
+    <div class="form-group">
+        <label for="hour">Hour</label>
+        <input type="text" name="hour"
+               placeholder="Post hour" class="form-control"
+               value="{{ request.form['hour'] }}" required="required"></input>
+    </div>
+    <div class="form-group">
+        <label for="day">Day</label>
+        <input type="text" name="day"
+               placeholder="Post day" class="form-control"
+               value="{{ request.form['day'] }}" required="required"></input>
+    </div>
+    <div class="form-group">
+        <label for="month">Month</label>
+        <input type="text" name="month"
+               placeholder="Post month" class="form-control"
+               value="{{ request.form['month'] }}" required="required"></input>
+    </div>
+    <div class="form-group">
+        <label for="weekday">Weekday</label>
+        <input type="text" name="weekday"
+               placeholder="Post weekday" class="form-control"
+               value="{{ request.form['weekday'] }}" required="required"></input>
+    </div>
+    <div class="form-group">
+        <label for="year">Year</label>
+        <input type="text" name="year"
+               placeholder="Post year" class="form-control"
+               value="{{ request.form['year'] }}" required="required"></input>
+    </div>
+    <div class="form-group">
+        <label for="holiday">Holiday</label>
+        <input type="text" name="holiday"
+               placeholder="Post holiday(Yes or no)" class="form-control"
+               value="{{ request.form['holiday'] }}" required="required"></input>
+    </div>
+    <div class="form-group">
+        <label for="workingday">Workingday</label>
+        <input type="text" name="workingday"
+               placeholder="Post workingday(Yes or no)" class="form-control"
+               value="{{ request.form['workingday'] }}" required="required"></input>
+    </div>
+    <div class="form-group">
+        <label for="weathersit">Weather situation</label>
+        <input type="text" name="weathersit"
+               placeholder="Post clear, cloudy or rainy" class="form-control"
+               value="{{ request.form['weathersit'] }}" required="required"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="humidity">Humidity</label>
+        <input type="text" name="humidity"
+               placeholder="Post humidity" class="form-control"
+               value="{{ request.form['humidity'] }}" required="required"></input>
+    </div>
+    <div class="form-group">
+        <label for="windspeed">Windspeed</label>
+        <input type="text" name="windspeed"
+               placeholder="Post windspeed" class="form-control"
+               value="{{ request.form['windspeed'] }}" required="required"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="temperature">Temperature</label>
+        <input type="text" name="temperature"
+               placeholder="Post temperature" class="form-control"
+               value="{{ request.form['temperature'] }}" required="required"></input>
+    </div>
+    <div class="form-group">
+        <label for="atemperature">Feeling temperature</label>
+        <input type="text" name="atemperature"
+               placeholder="Post feeling temperature" class="form-control"
+               value="{{ request.form['atemperature'] }}" required="required"></input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </div>
+</form>
+    <div class="mb-3">
+
+   {{ prediction_text }}
+   </div>
+{% endblock %}
+
+
